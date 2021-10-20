@@ -11,7 +11,7 @@ final class ViewController: UIViewController {
 
     @IBOutlet private weak var collectionView: UICollectionView!
     
-    private var items = [Int](0...100)
+    private var numbers = [Int](0...100)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,27 +20,43 @@ final class ViewController: UIViewController {
 
 }
 
+// MARK: - UICollectionViewDragDelegate
+extension ViewController: UICollectionViewDragDelegate {
+    func collectionView(_ collectionView: UICollectionView,
+                        itemsForBeginning session: UIDragSession,
+                        at indexPath: IndexPath) -> [UIDragItem] {
+        let number = numbers[indexPath.item]
+        let object = String(number) as NSItemProviderWriting
+        let itemProvider = NSItemProvider(object: object)
+        let dragItem = UIDragItem(itemProvider: itemProvider)
+        return [dragItem]
+    }
+}
+
+// MARK: - UICollectionViewDelegate
 extension ViewController: UICollectionViewDelegate {
     
 }
 
+// MARK: - UICollectionViewDataSource
 extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        items.count
+        numbers.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier,
                                                       for: indexPath) as! CollectionViewCell
-        cell.configure(number: items[indexPath.item])
+        cell.configure(number: numbers[indexPath.item])
         return cell
     }
     
 }
 
+// MARK: -
 extension ViewController {
     
     private func setupCollectionView() {
@@ -48,6 +64,7 @@ extension ViewController {
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.dragDelegate = self
         collectionView.register(CollectionViewCell.nib,
                                 forCellWithReuseIdentifier: CollectionViewCell.identifier)
     }
