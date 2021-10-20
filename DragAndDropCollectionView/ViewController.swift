@@ -31,6 +31,17 @@ extension ViewController: UICollectionViewDragDelegate {
         let dragItem = UIDragItem(itemProvider: itemProvider)
         return [dragItem]
     }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        itemsForAddingTo session: UIDragSession,
+                        at indexPath: IndexPath,
+                        point: CGPoint) -> [UIDragItem] {
+        let number = numbers[indexPath.item]
+        let object = String(number) as NSItemProviderWriting
+        let itemProvider = NSItemProvider(object: object)
+        let dragItem = UIDragItem(itemProvider: itemProvider)
+        return [dragItem]
+    }
 }
 
 // MARK: - UICollectionViewDelegate
