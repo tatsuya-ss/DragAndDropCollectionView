@@ -13,6 +13,8 @@
 		75C0515B2720042200BCD30E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75C051592720042200BCD30E /* Main.storyboard */; };
 		75C0515D2720042700BCD30E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75C0515C2720042700BCD30E /* Assets.xcassets */; };
 		75C051602720042700BCD30E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75C0515E2720042700BCD30E /* LaunchScreen.storyboard */; };
+		75C0516B272007C100BCD30E /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C05169272007C100BCD30E /* CollectionViewCell.swift */; };
+		75C0516C272007C100BCD30E /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75C0516A272007C100BCD30E /* CollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		75C0515C2720042700BCD30E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75C0515F2720042700BCD30E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75C051612720042700BCD30E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		75C05169272007C100BCD30E /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		75C0516A272007C100BCD30E /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 		75C051522720042200BCD30E /* DragAndDropCollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				75C05168272007B200BCD30E /* Cell */,
 				75C051532720042200BCD30E /* AppDelegate.swift */,
 				75C051552720042200BCD30E /* SceneDelegate.swift */,
 				75C051572720042200BCD30E /* ViewController.swift */,
@@ -65,6 +70,15 @@
 				75C051612720042700BCD30E /* Info.plist */,
 			);
 			path = DragAndDropCollectionView;
+			sourceTree = "<group>";
+		};
+		75C05168272007B200BCD30E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				75C05169272007C100BCD30E /* CollectionViewCell.swift */,
+				75C0516A272007C100BCD30E /* CollectionViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,6 +141,7 @@
 			files = (
 				75C051602720042700BCD30E /* LaunchScreen.storyboard in Resources */,
 				75C0515D2720042700BCD30E /* Assets.xcassets in Resources */,
+				75C0516C272007C100BCD30E /* CollectionViewCell.xib in Resources */,
 				75C0515B2720042200BCD30E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,6 +155,7 @@
 			files = (
 				75C051582720042200BCD30E /* ViewController.swift in Sources */,
 				75C051542720042200BCD30E /* AppDelegate.swift in Sources */,
+				75C0516B272007C100BCD30E /* CollectionViewCell.swift in Sources */,
 				75C051562720042200BCD30E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
