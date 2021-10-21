@@ -10,6 +10,7 @@ import UIKit
 final class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet private weak var numberLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     
     static var identifier: String { String(describing: self) }
     static var nib: UINib { UINib(nibName: String(describing: self), bundle: nil) }
@@ -19,8 +20,9 @@ final class CollectionViewCell: UICollectionViewCell {
 
     }
     
-    func configure(number: Int) {
-        numberLabel.text = String(number)
+    func configure(number: Number) {
+        numberLabel.text = String(number.number)
+        nameLabel.text = number.name
     }
     
     func changeBackgroundColor() {

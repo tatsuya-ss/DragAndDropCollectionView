@@ -11,7 +11,12 @@ final class ViewController: UIViewController {
 
     @IBOutlet private weak var collectionView: UICollectionView!
     
-    private var numbers = [Int](0...100)
+    private var numbers: [Number] = [Number(name: "a", number: 0),
+                                     Number(name: "b", number: 1),
+                                     Number(name: "c", number: 2),
+                                     Number(name: "d", number: 3),
+                                     Number(name: "e", number: 4),
+                                     Number(name: "f", number: 5), Number(name: "f", number: 5)]
     private var selectedIndexPath: IndexPath = []
     
     override func viewDidLoad() {
@@ -28,20 +33,20 @@ extension ViewController: UICollectionViewDragDelegate {
                         itemsForBeginning session: UIDragSession,
                         at indexPath: IndexPath) -> [UIDragItem] {
         let number = numbers[indexPath.item]
-        let object = String(number) as NSItemProviderWriting
+        let object = number.name as NSString
         let itemProvider = NSItemProvider(object: object)
         let dragItem = UIDragItem(itemProvider: itemProvider)
         dragItem.localObject = object
         return [dragItem]
     }
     
-    // 複数ドラッグ
+    //     複数ドラッグ
     func collectionView(_ collectionView: UICollectionView,
                         itemsForAddingTo session: UIDragSession,
                         at indexPath: IndexPath,
                         point: CGPoint) -> [UIDragItem] {
         let number = numbers[indexPath.item]
-        let object = String(number) as NSItemProviderWriting
+        let object = number.name as NSString
         let itemProvider = NSItemProvider(object: object)
         let dragItem = UIDragItem(itemProvider: itemProvider)
         return [dragItem]
@@ -71,13 +76,12 @@ extension ViewController: UICollectionViewDropDelegate {
                         performDropWith coordinator: UICollectionViewDropCoordinator) {
         guard let destinationIndexPath = coordinator.destinationIndexPath,
               let sourceIndexPath = coordinator.items.first?.sourceIndexPath,
-              let dragItem = coordinator.items.first?.dragItem,
-              let numberString = dragItem.localObject as? String
+              let dragItem = coordinator.items.first?.dragItem
         else { return }
         selectedIndexPath = destinationIndexPath
         collectionView.performBatchUpdates {
-            numbers.remove(at: sourceIndexPath.item)
-            numbers.insert(Int(numberString) ?? 0, at: destinationIndexPath.item)
+            let sourceItem = numbers.remove(at: sourceIndexPath.item)
+            numbers.insert(sourceItem, at: destinationIndexPath.item)
             collectionView.deleteItems(at: [sourceIndexPath])
             collectionView.insertItems(at: [destinationIndexPath])
         }

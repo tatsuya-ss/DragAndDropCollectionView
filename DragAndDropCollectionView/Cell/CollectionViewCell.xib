@@ -18,8 +18,15 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cn-u1-085">
-                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="27.5"/>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jOO-Yt-HtV">
+                        <rect key="frame" x="0.0" y="27.5" width="50" height="22.5"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -29,17 +36,25 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="0cn-u1-085" secondAttribute="trailing" id="5cr-YS-8KP"/>
+                <constraint firstItem="jOO-Yt-HtV" firstAttribute="top" secondItem="0cn-u1-085" secondAttribute="bottom" id="Esx-w5-gVe"/>
                 <constraint firstItem="0cn-u1-085" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="MIc-nn-eyv"/>
-                <constraint firstAttribute="bottom" secondItem="0cn-u1-085" secondAttribute="bottom" id="uO6-iI-Vxg"/>
+                <constraint firstItem="0cn-u1-085" firstAttribute="height" secondItem="jOO-Yt-HtV" secondAttribute="height" multiplier="1.2381" id="Vhn-am-60e"/>
+                <constraint firstItem="jOO-Yt-HtV" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="dSp-tS-ydS"/>
+                <constraint firstAttribute="trailing" secondItem="jOO-Yt-HtV" secondAttribute="trailing" id="sl5-AE-WAf"/>
                 <constraint firstItem="0cn-u1-085" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ulE-Gn-BQO"/>
+                <constraint firstAttribute="bottom" secondItem="jOO-Yt-HtV" secondAttribute="bottom" id="vkP-JR-745"/>
             </constraints>
             <connections>
-                <outlet property="numberLabel" destination="0cn-u1-085" id="zzN-ev-A4z"/>
+                <outlet property="nameLabel" destination="jOO-Yt-HtV" id="YAl-hE-KR7"/>
+                <outlet property="numberLabel" destination="0cn-u1-085" id="TJL-YB-arR"/>
             </connections>
-            <point key="canvasLocation" x="-39" y="-12"/>
+            <point key="canvasLocation" x="-39.130434782608695" y="-12.053571428571429"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
