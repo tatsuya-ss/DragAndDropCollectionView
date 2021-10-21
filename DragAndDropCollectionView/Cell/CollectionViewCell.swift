@@ -22,5 +22,9 @@ final class CollectionViewCell: UICollectionViewCell {
     func configure(number: Int) {
         numberLabel.text = String(number)
     }
+    
+    func changeBackgroundColor() {
+        numberLabel.backgroundColor = .systemYellow
+    }
 
 }
