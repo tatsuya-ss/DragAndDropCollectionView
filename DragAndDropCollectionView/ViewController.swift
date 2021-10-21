@@ -16,7 +16,8 @@ final class ViewController: UIViewController {
                                      Number(name: "c", number: 2),
                                      Number(name: "d", number: 3),
                                      Number(name: "e", number: 4),
-                                     Number(name: "f", number: 5), Number(name: "f", number: 5)]
+                                     Number(name: "f", number: 5),
+                                     Number(name: "f", number: 5)]
     private var selectedIndexPath: IndexPath = []
     
     override func viewDidLoad() {
@@ -36,7 +37,6 @@ extension ViewController: UICollectionViewDragDelegate {
         let object = number.name as NSString
         let itemProvider = NSItemProvider(object: object)
         let dragItem = UIDragItem(itemProvider: itemProvider)
-        dragItem.localObject = object
         return [dragItem]
     }
     
